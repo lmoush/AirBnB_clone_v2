@@ -22,14 +22,14 @@ class FileStorage:
             'Review': import_module('models.review').Review
         }
 
-    def all(self, lmoush=None):
+    def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
-        if lmoush is None:
+        if cls is None:
             return self.__objects
         else:
             filtered_dict = {}
             for key, value in self.__objects.items():
-                if type(value) is lmoush:
+                if type(value) is cls:
                     filtered_dict[key] = value
             return filtered_dict
 
